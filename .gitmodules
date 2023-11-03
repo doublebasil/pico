@@ -1,0 +1,9 @@
+[submodule "raspberry-repos/pico-examples"]
+	path = raspberry-repos/pico-examples
+	url = https://github.com/raspberrypi/pico-examples.git
+[submodule "raspberry-repos/pico-extras"]
+	path = raspberry-repos/pico-extras
+	url = https://github.com/raspberrypi/pico-extras.git
+[submodule "raspberry-repos/pico-playground"]
+	path = raspberry-repos/pico-playground
+	url = https://github.com/raspberrypi/pico-playground
