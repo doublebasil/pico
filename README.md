@@ -137,6 +137,28 @@ You can listen to serial output using:
 minicom 
 ```
 
+## Micropython
+
+As much as I like c, there isn't much point struggling through the c++ sdk 
+if you only want to do something simple. To use micropython on the pico, 
+download the micropython .uf2 file and upload it to the pico.
+
+normal pico 
+
+```
+wget https://micropython.org/download/rp2-pico/rp2-pico-latest.uf2
+```
+
+pico w
+
+```
+wget https://micropython.org/download/rp2-pico-w/rp2-pico-w-latest.uf2
+```
+
+More useful info under "Where can I find documentation?" on this webpage
+
+https://www.raspberrypi.com/documentation/microcontrollers/micropython.html
+
 ## Documentation Links
 
 Pinout              -> https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf
