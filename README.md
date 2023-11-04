@@ -1,24 +1,39 @@
-# Setup guide for pico
+# What is this repo
 
-The debian dependency installer is a streamlined version of this script:
+A guide for myself, which streamlines some of the install stuff for the pico. 
+I originally had a bunch of .sh scripts for the setup, but I've decided it's 
+better to copy paste the commands from here, to give a better understanding of 
+what's actually happening.
+
+## Installing dependencies for Debian
+
+This is all based on Raspberrys fairly bloated setup script:
 
 https://github.com/raspberrypi/pico-setup
 
-You can find more advice about the setup here
+You can find more advice about the setup here:
 
 https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf
 
-There's a lot of un-necessary stuff in Raspberry's setup script - my script just has the apt installs.
+apt installs:
 
-Incase you don't know, you can run the .sh files using
 ```
-sudo chmod +x deb_deps_install.sh
-./deb_deps_install.sh
+sudo apt update
+GIT_DEPS="git"
+SDK_DEPS="cmake gcc-arm-none-eabi gcc g++"
+OPENOCD_DEPS="gdb-multiarch automake autoconf build-essential texinfo libtool libftdi-dev libusb-1.0-0-dev"
+VSCODE_DEPS="wget"
+UART_DEPS="minicom"
+ALL_DEPS="$GIT_DEPS $SDK_DEPS $OPENOCD_DEPS $VSCODE_DEPS $UART_DEPS pkg-config"
+sudo apt install $ALL_DEPS
+sudo apt autoremove
 ```
 
 ## Raspberries repos
 
 Raspberry provide some useful repos for the Pico C++ SDK:
+
+https://github.com/raspberrypi/pico-pico.git
 
 https://github.com/raspberrypi/pico-examples.git
 
@@ -26,21 +41,92 @@ https://github.com/raspberrypi/pico-extras.git
 
 https://github.com/raspberrypi/pico-playground
 
-pico-examples is most useful. pico-playground is similar to examples, but contains stuff from pico-extras.
-I've added these as submodules to this repository, so you can download all of them using this command
+The SDK is required for building c/c. pico-sdk has submodules which are 
+required for the pico w. Extras has stuff for SD cards and displayes, 
+and playground contains examples for extras. 
+
+These are added as submodules to this repository. 
+Install these repos and add the environment variables to .bashrc
+
 ```
 git submodule update --init --recursive
+echo "" >> /home/$USER/.bashrc
+echo "# Raspberry Pico variables" >> /home/$USER/.bashrc
+echo export PICO_SDK_PATH="$PWD/raspberry-repos/pico-sdk" >> /home/$USER/.bashrc
+echo export PICO_EXAMPLES_PATH="$PWD/raspberry-repos/pico-examples" >> /home/$USER/.bashrc
+echo export PICO_EXTRAS_PATH="$PWD/raspberry-repos/pico-extras" >> /home/$USER/.bashrc
+echo export PICO_PLAYGROUND_PATH="$PWD/raspberry-repos/pico-playground" >> /home/$USER/.bashrc
+echo "" >> /home/$USER/.bashrc
+source /home/$USER/.bashrc
 ```
-You'll also need to install the pico-sdk and set the PICO_SDK_PATH variable
 
-https://github.com/raspberrypi/pico-sdk.git
+## Building the examples
 
-You can do that using of the the scripts in this repo
+This is different depending on if you're using a pico or a pico w.
 
-## Links
+For a standard pico:
+
+```
+mkdir raspberry-repos/pico-examples/build
+pushd raspberry-repos/pico-examples/build
+cmake ..
+make
+popd
+```
+
+For a pico w
+
+```
+mkdir raspberry-repos/pico-examples/build
+pushd raspberry-repos/pico-examples/build
+cmake -DPICO_BOARD=pico_w ..
+make
+popd
+```
+
+## Uploading an example
+
+Hold the BOOTSEL button and then plug in the pico. A drive should appear. 
+Using a file manager, go into pico-examples/build/blink, and drag the 
+.uf2 file to the RPI-RP2. It should blink.
+
+## Installing and using picotool
+
+There's also picoprobe but I don't want that.
+
+picotool is a submodule of this repository.
+
+```
+git submodule update --init --recursive
+pushd raspberry-repos/picotool/
+mkdir build
+cd build
+cmake ..
+make
+sudo cp picotool /usr/local/bin
+popd
+```
+
+Also run this line to prevent you needing to use sudo with picotool
+
+```
+sudo cp raspberry-repos/picotool/udev/99-picotool.rules /etc/udev/rules.d/
+```
+
+See this for more details
+
+https://github.com/raspberrypi/picotool/blob/master/README.md
+
+picotool load file.uf2 && picotool reboot
+
+I'm trying to find a way to get into bootsel mode without having to unplug the USB...
+
+## Documentation Links
 
 Pinout              -> https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf
 
 Pico Datasheet      -> https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf
 
 Raspberrys Website  -> https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html
+
+Pico W datasheet    -> https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf
