@@ -121,6 +121,22 @@ picotool load file.uf2 && picotool reboot
 
 I'm trying to find a way to get into bootsel mode without having to unplug the USB...
 
+You can put a pico into BOOTSEL mode by setting it's baud rate to specifically 1200. 
+You can list usbs using lsusb, you'll need to apt install usbutils. 
+
+However, I think the pico has to be communicating over usb/serial, such as with 
+hello world from pico-examples, so not a perfect solution.
+
+```
+sudo stty -F /dev/ttyACM0 1200
+```
+
+You can listen to serial output using:
+
+```
+minicom 
+```
+
 ## Documentation Links
 
 Pinout              -> https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf
