@@ -134,7 +134,7 @@ sudo stty -F /dev/ttyACM0 1200
 You can listen to serial output using:
 
 ```
-minicom 
+sudo minicom -o -D /dev/ttyACM0
 ```
 
 ## Micropython
@@ -158,6 +158,32 @@ wget https://micropython.org/download/rp2-pico-w/rp2-pico-w-latest.uf2
 More useful info under "Where can I find documentation?" on this webpage
 
 https://www.raspberrypi.com/documentation/microcontrollers/micropython.html
+
+There are 3 ways to interact with a pico running micropython:
+
+- Using minicom to run single python lines, or to listen to serial output
+- Using rshell to upload a main.py which stays on the board
+- Using Thonny, which has build in support for the pico
+
+```
+sudo minicom -o -D /dev/ttyACM0
+# (Use CRTL-D to soft reset the board)
+# You can now run micropython commands
+```
+
+```
+# Haven't figured out how to run rshell with
+# the stupid new pip stuff
+```
+
+```
+# With the new "externally managed environment" thing from pip, you
+# can install thonny with pipx
+sudo apt update
+sudo apt install pipx
+pipx ensurepath
+sudo pipx install thonny
+```
 
 ## Documentation Links
 
