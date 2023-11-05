@@ -199,6 +199,9 @@ sudo apt update
 sudo apt install python3-thonny
 ```
 
+After opening thonny, go to options -> Interpreter, and change to MicroPython (Raspberry Pi Pico).
+
+
 ## Documentation Links
 
 [Pinout](https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf)
