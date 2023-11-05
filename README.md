@@ -192,16 +192,11 @@ cp main.py /pyboard/main.py
 
 ### Thonny Micropython
 
-With the new "externally managed environment" thing from pip, you
-can install thonny with pipx
-Or you could --break-system-packages, similar to rshell
-I couldn't pipx install rshell for some reason
+You could install with pip, but it's easier with apt
 
 ```
 sudo apt update
-sudo apt install pipx
-pipx ensurepath
-sudo pipx install thonny
+sudo apt install python3-thonny
 ```
 
 ## Documentation Links
