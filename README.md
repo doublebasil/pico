@@ -33,13 +33,13 @@ sudo apt autoremove
 
 Raspberry provide some useful repos for the Pico C++ SDK:
 
-(pico-sdk)[https://github.com/raspberrypi/pico-sdk.git]
+[pico-sdk](https://github.com/raspberrypi/pico-sdk.git)
 
-(pico-examples)[https://github.com/raspberrypi/pico-examples.git]
+[pico-examples](https://github.com/raspberrypi/pico-examples.git)
 
-(pico-extras)[https://github.com/raspberrypi/pico-extras.git]
+[pico-extras](https://github.com/raspberrypi/pico-extras.git)
 
-(pico-plaground)[https://github.com/raspberrypi/pico-playground]
+[pico-plaground](https://github.com/raspberrypi/pico-playground)
 
 The SDK is required for building c/c. pico-sdk has submodules which are 
 required for the pico w. Extras has stuff for SD cards and displayes, 
@@ -115,7 +115,7 @@ sudo cp raspberry-repos/picotool/udev/99-picotool.rules /etc/udev/rules.d/
 
 See this for more details
 
-(picotool repository)[https://github.com/raspberrypi/picotool/blob/master/README.md]
+[picotool repository](https://github.com/raspberrypi/picotool/blob/master/README.md)
 
 picotool load file.uf2 && picotool reboot
 
@@ -157,7 +157,7 @@ wget https://micropython.org/download/rp2-pico-w/rp2-pico-w-latest.uf2
 
 More useful info under "Where can I find documentation?" on this webpage
 
-(Micropython For Pico)[https://www.raspberrypi.com/documentation/microcontrollers/micropython.html]
+[Micropython For Pico](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html)
 
 There are 3 ways to interact with a pico running micropython:
 
@@ -206,10 +206,10 @@ sudo pipx install thonny
 
 ## Documentation Links
 
-(Pinout)[https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf]
+[Pinout](https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf)
 
-(Pico Datasheet)[https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf]
+[Pico Datasheet](https://datasheets.raspberrypi.com/pico/pico-datasheet.pdf)
 
-(Raspberrys Website)[https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.]html
+[Raspberrys Website](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html)
 
-(Pico W datasheet)[https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf]
+[Pico W datasheet](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf)
