@@ -165,20 +165,39 @@ There are 3 ways to interact with a pico running micropython:
 - Using rshell to upload a main.py which stays on the board
 - Using Thonny, which has build in support for the pico
 
+### Minicom Micropython
+
 ```
 sudo minicom -o -D /dev/ttyACM0
-# (Use CRTL-D to soft reset the board)
-# You can now run micropython commands
+```
+
+(Use CRTL-D to soft reset the board)
+
+You can now run micropython commands
+
+### Rshell Micropython
+
+The new pip "externally managed environment" makes this a bit riskier
+The OS should never need rshell so there shouldn't ever be a dependency 
+conflict.
+
+```
+sudo pip install rshell --break-system-packages
 ```
 
 ```
-# Haven't figured out how to run rshell with
-# the stupid new pip stuff
+rshell
+cp main.py /pyboard/main.py
 ```
 
+### Thonny Micropython
+
+With the new "externally managed environment" thing from pip, you
+can install thonny with pipx
+Or you could --break-system-packages, similar to rshell
+I couldn't pipx install rshell for some reason
+
 ```
-# With the new "externally managed environment" thing from pip, you
-# can install thonny with pipx
 sudo apt update
 sudo apt install pipx
 pipx ensurepath
