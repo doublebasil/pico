@@ -13,6 +13,6 @@
 [submodule "raspberry-repos/picotool"]
 	path = raspberry-repos/picotool
 	url = https://github.com/raspberrypi/picotool.git
-[submodule "pico-micropython-examples"]
-	path = pico-micropython-examples
+[submodule "raspberry-repos/pico-micropython-examples"]
+	path = raspberry-repos/pico-micropython-examples
 	url = https://github.com/raspberrypi/pico-micropython-examples.git
