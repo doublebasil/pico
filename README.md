@@ -5,7 +5,7 @@ I originally had a bunch of .sh scripts for the setup, but I've decided it's
 better to copy paste the commands from here, to give a better understanding of 
 what's actually happening.
 
-## Installing dependencies for Debian
+## Installing c dependencies for Debian
 
 This is all based on Raspberrys fairly bloated setup script:
 
@@ -89,6 +89,9 @@ popd
 Hold the BOOTSEL button and then plug in the pico. A drive should appear. 
 Using a file manager, go into pico-examples/build/blink, and drag the 
 .uf2 file to the RPI-RP2. It should blink.
+
+Quickest way to put the pico into BOOTSEL mode (without unplugging) is to use a
+button to ground the 3V EN pin, which turns the pico off.
 
 ## Installing and using picotool
 
