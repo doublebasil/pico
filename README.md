@@ -158,6 +158,10 @@ pico w
 wget https://micropython.org/download/rp2-pico-w/rp2-pico-w-latest.uf2
 ```
 
+Note that for the webserver.py example, you need to go to these webpages:
+http://[PICO_IP]/light/on
+http://[PICO_IP]/light/off
+
 More useful info under "Where can I find documentation?" on this webpage
 
 [Micropython For Pico](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html)
