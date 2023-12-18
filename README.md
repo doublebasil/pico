@@ -143,7 +143,11 @@ sudo minicom -o -D /dev/ttyACM0
 ## Micropython
 
 As much as I like c, there isn't much point struggling through the c++ sdk 
-if you only want to do something simple. To use micropython on the pico, 
+if you only want to do something simple. Micropython is about 20 times slower
+than using the C sdk. For something like a web server, this is the difference
+between waiting two seconds for the webpage to load, and waiting 0.1 seconds.
+
+To use micropython on the pico, 
 download the micropython .uf2 file and upload it to the pico.
 
 normal pico 
@@ -218,3 +222,5 @@ After opening thonny, go to options -> Interpreter, and change to MicroPython (R
 [Raspberrys Website](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html)
 
 [Pico W datasheet](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf)
+
+[Pico C SDK Documentation](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf)
