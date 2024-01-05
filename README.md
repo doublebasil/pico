@@ -224,3 +224,5 @@ After opening thonny, go to options -> Interpreter, and change to MicroPython (R
 [Pico W datasheet](https://datasheets.raspberrypi.com/picow/pico-w-datasheet.pdf)
 
 [Pico C SDK Documentation](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf)
+
+[More Comprehensive C SDK Documentation](https://www.raspberrypi.com/documentation/pico-sdk/)
